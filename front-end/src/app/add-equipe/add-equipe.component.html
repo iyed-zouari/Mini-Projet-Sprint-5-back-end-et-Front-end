@@ -1,0 +1,44 @@
+<div class="container">
+  <div>
+  <h2>Ajouter un Equipe :</h2>
+  </div>
+  <form >
+  <div class="col-sm-2 col-md-2 col-lg-2">
+
+  <input hidden type="text" [(ngModel)]="newEquipe.idEquipe"
+  name="idEquipe" class="form-control">
+  </div>
+  <div class="col-sm-4 col-md-4 col-lg-4" >
+  <label >Nom Equipe</label>
+  <input type="text"[(ngModel)]= "newEquipe.nomEquipe"
+  name="nomEquipe" class="form-control">
+</div>
+<div class="col-sm-4 col-md-4 col-lg-4" >
+  <label >Nom Terrain</label>
+  <input type="text"[(ngModel)]= "newEquipe.nomTerrain"
+  name="nomTerrain" class="form-control">
+</div>
+<div class="col-sm-2 col-md-2 col-lg-2">
+<label >budgetAnnuel: </label>
+<input type="number" [(ngModel)]= "newEquipe.budgetAnnuel"
+name="prixEquipe" class="form-control">
+</div>
+<div class="col-sm-4 col-md-4 col-lg-4">
+<label >Date création</label>
+<input type="date" [(ngModel)]= "newEquipe.dateRealisation"
+name="dateCreation" class="form-control">
+</div>
+<div class="col-sm-4 col-md-4 col-lg-4">
+  <label>League</label>
+  <select class="form-control form-control-lg" id="idLeg" name="idLeg"
+  [(ngModel)]="newIdLeg">
+  @for(league of leagues; track league.idLeg){
+  <option [value]="league.idLeg"> {{league.nomLeg}} </option>
+  }
+  </select>
+</div>
+<div class="mt-2">
+<button type="submit" (click)="addEquipe()"class="btn btn-success">Ajouter</button>
+</div>
+</form>
+</div>

@@ -1,0 +1,5 @@
+package com.iyed.equipe.repos;
+
+public interface LeagueRepository {
+
+}

@@ -1,0 +1,5 @@
+package com.iyed.equipe.security;
+
+public class SecurityConfig {
+
+}

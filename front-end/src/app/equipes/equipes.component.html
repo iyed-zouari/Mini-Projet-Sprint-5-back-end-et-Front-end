@@ -1,0 +1,57 @@
+<div class="container">
+  <div class="card shadow mb-4">
+    <div class="card-body">
+      <table class="table table-striped">
+        <tr>
+          <th>N:</th>
+          <th>Id</th>
+          <th>Nom</th>
+          <th>nom Terrain</th>
+          <th>budgetAnnuel</th>
+          <th>Date Création</th>
+          <th>League</th>
+        </tr>
+
+        @for (equipe of equipes; track equipe.idEquipe;let index =$index;let
+        nbr=$count) {
+        <tbody>
+          <tr>
+            <td>{{ index }}</td>
+            <td>{{ equipe.idEquipe }}</td>
+            <td>{{ equipe.nomEquipe }}</td>
+            <td>{{ equipe.nomTerrain }}</td>
+            <td>{{ equipe.budgetAnnuel }}</td>
+            <td>{{ equipe.dateRealisation | date : "dd/MM/yyyy" }}</td>
+            <td>{{ equipe.league.nomLeg }}</td>
+            @if(authService.isAdmin()) {
+            <td>
+              <a class="btn btn-danger" (click)="supprimerEquipe(equipe)"
+                >Supprimer</a
+              >
+            </td>
+            <td>
+              <a
+                class="btn btn-success"
+                [routerLink]="['/updateEquipe', equipe.idEquipe]"
+                >Modifier</a
+              >
+            </td>}
+          </tr>
+        </tbody>
+
+        } @empty {
+        <h1>Aucun produit trouvé !</h1>
+        }
+      </table>
+    </div>
+  </div>
+</div>
+
+<!--   <tr>   @if(index==0)
+    { <h1>Nombre : {{nbr}}</h1>}</tr></p>
+     Utiliser l’attribut $first et $last
+@for (produit of produits; track produit.idProduit; let index =$index; let nbr=$count;
+let first = $first)
+@if(first)
+{ <h1>Nombre : {{nbr}}</h1>}
+ -->

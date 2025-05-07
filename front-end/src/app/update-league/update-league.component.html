@@ -1,0 +1,15 @@
+<form>
+  <div [hidden]="ajout">
+  <label>ID Legue</label>
+  <input type="text" [(ngModel)]="league.idLeg" name="idLeague" class="form-control w-25">
+  </div>
+  <div>
+  <label>Nom League</label>
+  <input type="text" [(ngModel)]="league.nomLeg" name="nomLeague" class="form-control"
+  placeholder="Entrez un nom de League...">
+   </div>
+  <div class="mt-2">
+    <button type="submit" [disabled]="!league.nomLeg" class="btn btn-success"     (click)="saveLeague()" >{{ajout ? 'Ajouter' : 'Modifier'}}
+    </button>
+  </div>
+  </form>

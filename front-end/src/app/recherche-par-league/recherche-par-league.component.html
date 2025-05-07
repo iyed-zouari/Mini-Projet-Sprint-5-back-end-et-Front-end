@@ -1,0 +1,49 @@
+<div class="container">
+  <div class="col-sm-4 col-md-4 col-lg-4 mb-4">
+    <label>Leagues </label>
+    <select
+      class="form-control form-control-lg" id="idLeg" name="idLeg" [(ngModel)]="Idleague" (change)="onChange()">
+      @for(leg of leagues;track leg.idLeg) {
+      <option value="{{ leg.idLeg }}">{{ leg.nomLeg }}</option>
+      }
+    </select>
+  </div>
+
+  <div class="card shadow mb-4">
+    <div class="card-body">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Id</th>
+            <th>Nom</th>
+            <th>nom Terrain</th>
+            <th>budgetAnnuel</th>
+            <th>Date Création</th>
+            <th>league</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (equipe of equipes; track equipe.idEquipe) {
+          <tr>
+            <td>{{ equipe.idEquipe }}</td>
+            <td>{{ equipe.nomEquipe }}</td>
+            <td>{{ equipe.nomTerrain }}</td>
+            <td>{{ equipe.budgetAnnuel }}</td>
+            <td>{{ equipe.dateRealisation | date : "dd/MM/yyyy" }}</td>
+            @if(equipe.league){
+            <td>{{ equipe.league.nomLeg }}</td>
+            } @else {
+            <td>PAS DE League</td>
+            }
+          </tr>
+          }
+          @empty {
+            <tr>
+              <td colspan="6" class="text-center">No teams found</td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
